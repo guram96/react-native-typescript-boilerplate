@@ -130,6 +130,7 @@ android {
     defaultConfig {
         applicationId "com.kinoafisha"
         minSdkVersion rootProject.ext.minSdkVersion
+        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative60"
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -179,9 +180,11 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-config')
+    implementation project(':@react-native-community_async-storage')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
+    implementation project(':react-native-navigation')
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
@@ -197,5 +200,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

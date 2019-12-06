@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.6.3",
     "axios": "^0.19.0",
     "fuse.js": "^3.4.5",
     "i18next": "^17.0.14",
@@ -17,10 +18,14 @@
     "react": "16.9.0",
     "react-i18next": "^10.12.2",
     "react-native": "0.61.5",
+    "react-native-config": "^0.12.0",
     "react-native-haptic-feedback": "^1.8.2",
+    "react-native-navigation": "^4.0.4",
     "react-native-quick-actions": "^0.3.12",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3",
     "rn-snackbar": "^1.0.7",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.4.1"
   },
   "husky": {
     "hooks": {
@@ -36,13 +41,17 @@
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/runtime": "^7.7.4",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.23",
     "@types/node": "^12.7.12",
     "@types/react": "^16.9.15",
     "@types/react-native": "^0.60.23",
+    "@types/react-native-navigation": "^2.0.0",
     "@types/react-redux": "^7.1.2",
     "@types/react-test-renderer": "^16.9.1",
-    "@types/styled-components": "^4.1.19",
+    "@types/redux": "^3.6.0",
+    "@types/redux-saga": "^0.10.5",
+    "@types/styled-components": "^4.4.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-styled-components": "^1.10.6",
     "jest": "^24.9.0",
@@ -50,6 +59,7 @@
     "prettier": "^1.18.2",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.9.0",
+    "redux-logger": "^3.0.6",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },

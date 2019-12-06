@@ -1,0 +1,74 @@
+{
+  "name": "kinoafisha",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "fuse.js": "^3.4.5",
+    "i18next": "^17.0.14",
+    "moment": "^2.24.0",
+    "react": "16.9.0",
+    "react-i18next": "^10.12.2",
+    "react-native": "0.61.5",
+    "react-native-haptic-feedback": "^1.8.2",
+    "react-native-quick-actions": "^0.3.12",
+    "rn-snackbar": "^1.0.7",
+    "styled-components": "^4.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.7.12",
+    "@types/react": "^16.9.15",
+    "@types/react-native": "^0.60.23",
+    "@types/react-redux": "^7.1.2",
+    "@types/react-test-renderer": "^16.9.1",
+    "@types/styled-components": "^4.1.19",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "prettier": "^1.18.2",
+    "react-native-typescript-transformer": "^1.2.13",
+    "react-test-renderer": "16.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
+  }
+}
